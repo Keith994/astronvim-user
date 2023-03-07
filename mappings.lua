@@ -108,13 +108,7 @@ maps.n["tpv"] = {
     end,
     desc = "Vertical split buffer from tabline",
 }
-
-if is_available "aerial.nvim" then
-    maps.n["T"] = { function() require("aerial").toggle() end, desc = "Symbols outline" }
-end
-
-if is_available "toggleterm.nvim" then
-end
+maps.n["tl"] = { function() require("aerial").toggle() end, desc = "Symbols outline" }
 
 maps.n["<leader>ld"] = { "<cmd>TodoTrouble<cr>", desc = "Todo List" }
 maps.n["<leader>fR"] = { function() require("spectre").open_visual() end, desc = "Find and replace" }
