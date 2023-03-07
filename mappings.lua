@@ -5,7 +5,7 @@ local maps = { n = {}, i = {}, v = {}, t = {}, c = {},[""] = {} }
 maps[""]["<Space>"] = ""
 maps.n["<leader>c"] = ""
 maps.n["<leader>C"] = ""
-maps.n["<leader>w"] = ""
+maps.n["<leader>w"] = { "󱂬 Windows", desc = nil }
 
 maps.n["<localleader>w"] = { "<cmd>w<cr>", desc = "Save" }
 maps.n[";"] = { ":" }
