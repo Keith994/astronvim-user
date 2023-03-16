@@ -67,6 +67,7 @@ return {
   },
   {
     "simrat39/rust-tools.nvim",
+    ft = "rust",
     config = function() require "user.plugins.configs.rust-tools" end,
   },
   {
@@ -203,6 +204,45 @@ return {
         })[entry.source.name]
         return vim_item
       end,
+    },
+  },
+  {
+    "glepnir/nerdicons.nvim",
+    cmd = { "NerdIcons" },
+    config = function() require("nerdicons").setup {} end,
+  },
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection" },
+    init = function()
+      vim.g.db_ui_use_nerd_fonts = 1
+      vim.g.dbs = require "user.plugins.configs.dbs"
+      vim.g.db_ui_save_location = "~/db_ui_queries"
+      vim.g.db_ui_win_position = "right"
+      -- vim.g.db_ui_disable_mappings = 1
+      vim.g.db_ui_show_database_icon = 1
+    end,
+    config = function() end,
+    dependencies = {
+      { "tpope/vim-dadbod", cmd = "DB" },
+      {
+        "nanotee/sqls.nvim",
+        ft = "sql",
+      },
+    },
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    opts = {
+      buftype_exclude = {
+        "dbui",
+      },
+      show_trailing_blankline_indent = false,
+      use_treesitter = true,
+      char = "",
+      space_char_blankline = " ",
+      context_char = "▏",
+      show_current_context = true,
     },
   },
 }

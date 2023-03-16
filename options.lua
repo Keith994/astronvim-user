@@ -11,6 +11,8 @@ return {
     softtabstop = 2,
     shiftwidth = 2,
     guifont = "FiraCodeNerdFontCompleteM-Retina:h11",
+    showcmd = false,
+    cmdheight = 0,
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
@@ -21,7 +23,7 @@ return {
     diagnostics_enabled = true, -- enable diagnostics at start
     status_diagnostics_enabled = true, -- enable diagnostics in statusline
     icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
-    ui_notifications_enabled = true, -- disable notifications when toggling UI elements
+    ui_notifications_enabled = false, -- disable notifications when toggling UI elements
     heirline_bufferline = true,
     neovide_scale_factor = 0.6,
     neovide_background_color = "#0f1117",
