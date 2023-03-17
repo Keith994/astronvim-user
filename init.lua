@@ -1,7 +1,6 @@
 local config = {}
+config.highlights = require "user.highlights"
 
--- Set colorscheme to use
-config.colorscheme = "mariana"
 
 config.icons = {
   VimIcon = "󰣇",
@@ -30,11 +29,12 @@ config.updater = {
   -- },
 }
 
-config.highlights = require "user.highlights"
 config.diagnostics = require "user.diagnostics"
 config.lsp = require "user.lsp"
 config.mappings = require "user.mappings"
 config.lazy = require "user.lazy"
 config.plugins = require "user.plugins"
+-- Set colorscheme to use
+config.colorscheme = "duskfox"
 
 return config

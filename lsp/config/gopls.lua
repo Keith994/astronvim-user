@@ -1,4 +1,3 @@
-local utils = require "astronvim.utils"
 return {
     settings = {
         go = {
