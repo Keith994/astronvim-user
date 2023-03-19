@@ -12,6 +12,7 @@ return {
     "olexsmir/gopher.nvim",
     enabled = false,
   },
+  { import = "astrocommunity.pack.nix.nix" },
   { import = "astrocommunity.pack.rust.rust" },
   { import = "astrocommunity.pack.python.python" },
   { import = "astrocommunity.pack.markdown.markdown" },
