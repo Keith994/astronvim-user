@@ -3,11 +3,11 @@ config.highlights = require "user.highlights"
 
 
 config.icons = {
-  VimIcon = "󰣇",
+  VimIcon = "",
   ScrollText = "",
-  GitBranch = " 󰘬",
+  GitBranch = "",
   GitAdd = "",
-  GitChange = "󰛿",
+  GitChange = "",
   GitDelete = "",
 }
 
