@@ -21,20 +21,20 @@ return {
       },
     },
   },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    opts = {
-      buftype_exclude = {
-        "dbui",
-      },
-      show_trailing_blankline_indent = false,
-      use_treesitter = true,
-      char = "",
-      space_char_blankline = " ",
-      context_char = "▏",
-      show_current_context = true,
-    },
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   opts = {
+  --     buftype_exclude = {
+  --       "dbui",
+  --     },
+  --     show_trailing_blankline_indent = false,
+  --     use_treesitter = true,
+  --     char = "▏",
+  --     space_char_blankline = " ",
+  --     context_char = "▏",
+  --     show_current_context = true,
+  --   },
+  -- },
   {
     "hrsh7th/nvim-cmp",
     keys = { ":", "/", "?" }, -- lazy load cmp on more keys along with insert mode

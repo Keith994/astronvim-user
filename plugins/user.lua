@@ -101,12 +101,12 @@ return {
       g.vim_markdown_toc_autofit = 1
     end,
   },
-  {
-    "phaazon/hop.nvim",
-    branch = "v2",
-    cmd = { "HopWord", "HopChar1" },
-    config = function() require("hop").setup {} end,
-  },
+  -- {
+  --   "phaazon/hop.nvim",
+  --   branch = "v2",
+  --   cmd = { "HopWord", "HopChar1" },
+  --   config = function() require("hop").setup {} end,
+  -- },
   {
     "folke/neodev.nvim",
     dependencies = { { "nanotee/luv-vimdocs" } },

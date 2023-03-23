@@ -5,14 +5,14 @@ return {
     relativenumber = true, -- sets vim.opt.relativenumber
     number = true, -- sets vim.opt.number
     spell = false, -- sets vim.opt.spell
-    signcolumn = "auto", -- sets vim.opt.signcolumn to auto
+    signcolumn = "yes", -- sets vim.opt.signcolumn to auto
     wrap = false, -- sets vim.opt.wrap
     tabstop = 2,
     softtabstop = 2,
     shiftwidth = 2,
     guifont = "FiraCodeNerdFontCompleteM-Retina:h11",
     showcmd = false,
-    cmdheight = 0,
+    cmdheight = 1,
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader

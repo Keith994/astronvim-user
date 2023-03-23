@@ -17,7 +17,6 @@ maps.n["<C-q>"] = {
   function()
     local tabnum = vim.api.nvim_tabpage_get_number(0)
     if tabnum == 1 then
-      vim.cmd "SessionManager! save_current_session"
       vim.cmd "qa!"
     else
       vim.cmd "tabclose"
@@ -25,8 +24,23 @@ maps.n["<C-q>"] = {
   end,
   desc = "Force quit",
 }
-maps.n["gh"] = { "<cmd>HopWord<CR>", desc = "hop current word" }
-maps.n["tt"] = { "<cmd>Neotree focus<cr>", desc = "Focus Explorer" }
+maps.n["<C-s>"] = {
+  function() vim.cmd "SessionManager! save_current_session" end,
+  desc = "Force Write And Save Session",
+}
+-- maps.n["gh"] = { "<cmd>HopWord<CR>", desc = "jump to word position" }
+-- maps.n["tt"] = { "<cmd>Neotree focus<cr>", desc = "Focus Explorer" }
+
+-- Alpha
+maps.n["<leader>uA"] = { "<cmd>Alpha<cr>", desc = "DashBoard" }
+
+maps.n["<leader>vv"] = {
+  function()
+    vim.cmd "chdir ~/.config/nvim/lua/user/"
+    vim.cmd "SessionManager load_current_dir_session"
+  end,
+  desc = "Load Nvim Config Session",
+}
 
 -- Terminal
 maps.c["<c-a>"] = { "<Home>" }
@@ -73,38 +87,6 @@ maps.n[">b"] = {
 maps.n["<b"] = {
   function() require("astronvim.utils.buffer").move(-(vim.v.count > 0 and vim.v.count or 1)) end,
   desc = "Move buffer tab left",
-}
-maps.n["tpp"] = {
-  function()
-    require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) vim.api.nvim_win_set_buf(0, bufnr) end)
-  end,
-  desc = "Select buffer from tabline",
-}
-maps.n["tpd"] = {
-  function()
-    require("astronvim.utils.status").heirline.buffer_picker(
-      function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
-    )
-  end,
-  desc = "Delete buffer from tabline",
-}
-maps.n["tps"] = {
-  function()
-    require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
-      vim.cmd.split()
-      vim.api.nvim_win_set_buf(0, bufnr)
-    end)
-  end,
-  desc = "Horizontal split buffer from tabline",
-}
-maps.n["tpv"] = {
-  function()
-    require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
-      vim.cmd.vsplit()
-      vim.api.nvim_win_set_buf(0, bufnr)
-    end)
-  end,
-  desc = "Vertical split buffer from tabline",
 }
 maps.n["tl"] = { function() require("aerial").toggle() end, desc = "Symbols outline" }
 
