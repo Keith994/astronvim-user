@@ -1,19 +1,19 @@
 return {
     settings = {
         go = {
-            formatting = "goimports",
+            formatting = "gofumpt",
         },
         gopls = {
-            hints = {
-                compositeLiteralFields = true,
-                assignVariableTypes = true,
-                compositeLiteralTypes = true,
-                constantValues = true,
-                parameterNames = true,
-                functionTypeParameters = true,
-            },
+            -- hints = {
+            --     compositeLiteralFields = true,
+            --     assignVariableTypes = true,
+            --     compositeLiteralTypes = true,
+            --     constantValues = true,
+            --     parameterNames = true,
+            --     functionTypeParameters = true,
+            -- },
             analyses = {
-                unusedparams = true,
+                unusedparams = false,
             },
             staticcheck = false,
         },

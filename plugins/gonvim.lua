@@ -31,7 +31,7 @@ return {
         icons = false,
         sign_priority = 500,
         lsp_inlay_hints = {
-          enable = true,
+          enable = false,
           -- Only show inlay hints for the current line
           only_current_line = false,
           -- Event which triggers a refersh of the inlay hints.

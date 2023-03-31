@@ -1,9 +1,4 @@
 return {
-  {
-    "antoinemadec/FixCursorHold.nvim",
-    event = { "BufReadPost" },
-    init = function() vim.g.cursorhold_updatetime = 100 end,
-  },
   { "lambdalisue/suda.vim", cmd = { "SudaWrite", "SudaRead" } },
   {
     "neovim/nvim-lspconfig",
@@ -30,23 +25,23 @@ return {
           move_cursor_key = "<C-j>",
         },
       },
-      {
-        "VidocqH/lsp-lens.nvim",
-        event = "CursorMovedI",
-        opts = {
-          enable = true,
-          include_declaration = false, -- Reference include declaration
-          sections = {
-            -- Enable / Disable specific request
-            definition = false,
-            references = true,
-            implementation = true,
-          },
-          ignore_filetype = {
-            "prisma",
-          },
-        },
-      },
+      -- {
+      --   "VidocqH/lsp-lens.nvim",
+      --   event = "CursorMovedI",
+      --   opts = {
+      --     enable = true,
+      --     include_declaration = false, -- Reference include declaration
+      --     sections = {
+      --       -- Enable / Disable specific request
+      --       definition = false,
+      --       references = true,
+      --       implementation = true,
+      --     },
+      --     ignore_filetype = {
+      --       "prisma",
+      --     },
+      --   },
+      -- },
     },
   },
   {
@@ -87,9 +82,7 @@ return {
         "iamcco/markdown-preview.nvim",
         build = ":cd app && yarn install",
         ft = "markdown",
-        init = function()
-          vim.g.mkdp_browser = "/usr/bin/microsoft-edge-stable"
-        end,
+        init = function() vim.g.mkdp_browser = "/usr/bin/microsoft-edge-stable" end,
         cmd = { "MarkdownPreview" },
       },
     },
@@ -109,6 +102,7 @@ return {
   -- },
   {
     "folke/neodev.nvim",
+    ft = "lua",
     dependencies = { { "nanotee/luv-vimdocs" } },
   },
   {
@@ -168,7 +162,8 @@ return {
       -- vim.g.db_ui_disable_mappings = 1
       vim.g.db_ui_show_database_icon = 1
     end,
-    config = function() end,
+    config = function()
+    end,
     dependencies = {
       { "tpope/vim-dadbod", cmd = "DB" },
       {
@@ -177,5 +172,4 @@ return {
       },
     },
   },
-
 }

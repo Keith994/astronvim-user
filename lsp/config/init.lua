@@ -3,5 +3,6 @@ return {
     rust_analyzer = require "user.lsp.config.rust-analyzer",
     gopls = require "user.lsp.config.gopls",
     jsonls = require "user.lsp.config.jsonls",
+    sqls = require "user.lsp.config.sqls",
     -- sqls = require "user.lsp.server-settings.sqls",
 }

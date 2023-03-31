@@ -13,6 +13,7 @@ maps.n["<localleader>p"] = { ':echo expand("%:p:f")<cr>' }
 maps.n["<leader>r"] = { '<cmd>lua require"user.quickrun".run_command()<cr>', desc = "QuickRun" }
 maps.n["<leader><enter>"] = { "<cmd>nohlsearch<cr>", desc = "No Highlight" }
 maps.t["<C-q>"] = { "<C-\\><C-n>:q<cr>", desc = "Toggle terminal" }
+maps.n["<C-w>"] = { " <cmd>wq<cr>", desc = "Write and Quit Window" }
 maps.n["<C-q>"] = {
   function()
     local tabnum = vim.api.nvim_tabpage_get_number(0)
