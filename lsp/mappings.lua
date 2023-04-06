@@ -4,6 +4,10 @@ return {
     ["gy"] = { function() vim.lsp.buf.hover() end, desc = "Hover symbol details" },
     ["<leader>la"] = { function() vim.lsp.buf.code_action() end, desc = "LSP code action" },
     ["ga"] = { function() vim.lsp.buf.code_action() end, desc = "LSP code action" },
+    ["gA"] = {
+      function() vim.lsp.codelens.run() end,
+      desc = "LSP CodeLens run",
+    },
     ["<localleader>f"] = { function() vim.lsp.buf.format() end, desc = "Format code" },
     ["gR"] = { function() vim.lsp.buf.rename() end, desc = "Rename current symbol" },
     ["gD"] = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", desc = "Type Defnition" },

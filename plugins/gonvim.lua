@@ -66,9 +66,9 @@ return {
         function() require("telescope").extensions.goimpl.goimpl {} end,
         { desc = "Telescope go impl" }
       )
-      local maps = { n = {} }
-      maps.n["gA"] = { "<cmd>GoCodeLenAct<CR>", desc = "Go CodeLenAct" }
-      utils.set_mappings(astronvim.user_opts("lsp.mappings", maps, true))
+      -- local maps = { n = {} }
+      -- maps.n["gA"] = { "<cmd>GoCodeLenAct<CR>", desc = "Go CodeLenAct" }
+      -- utils.set_mappings(astronvim.user_opts("lsp.mappings", maps, true))
       return opts
     end,
   },
