@@ -8,9 +8,9 @@ return {
   -- { import = "astrocommunity.colorscheme.nightfox" },
   -- { "EdenEast/nightfox.nvim", lazy = false },
   { import = "astrocommunity.colorscheme.catppuccin" },
-  { 
-    "catppuccin", 
-    lazy = false , 
+  {
+    "catppuccin",
+    lazy = false,
     opts = {
       integrations = {
         -- sandwich = false,
@@ -32,18 +32,29 @@ return {
   -- { "ellisonleao/gruvbox.nvim", lazy = false },
   -- { import = "astrocommunity.colorscheme.kanagawa" },
   -- { "rebelot/kanagawa.nvim", lazy = false },
-  -- { import = "astrocommunity.colorscheme.mini-base16" },
+  { import = "astrocommunity.colorscheme.mini-base16" },
   -- { "echasnovski/mini.base16", lazy = false },
   -- { import = "astrocommunity.colorscheme.onigiri" },
   -- { "kaiuri/onigiri.nvim", lazy = false },
-  -- { import = "astrocommunity.colorscheme.tokyonight" },
-  -- { "folke/tokyonight.nvim", lazy = false },
+  { import = "astrocommunity.colorscheme.tokyonight" },
+  { "folke/tokyonight.nvim", lazy = false },
   -- { import = "astrocommunity.color.ccc-nvim" },
   -- { import = "astrocommunity.color.tint-nvim" },
   { import = "astrocommunity.color.headlines-nvim" },
   -- { import = "astrocommunity.media.drop-nvim" },
+  { import = "astrocommunity.code-runner.overseer-nvim" },
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.color.modes-nvim" },
+  { import = "astrocommunity.code-runner.sniprun" },
+  {
+    "michaelb/sniprun",
+    opts = {
+      display = {
+        "Classic", --# display results in the command-line  area
+      },
+    },
+  },
+  -- { import = "astrocommunity.note-taking.neorg" },
   -- { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.syntax.hlargs-nvim" },
   -- { import = "astrocommunity.scrolling.satellite-nvim.satellite-nvim" },
@@ -63,6 +74,10 @@ return {
   { import = "astrocommunity.motion.mini-move.mini-move" },
   { import = "astrocommunity.motion.mini-bracketed.mini-bracketed" },
   { import = "astrocommunity.motion.mini-surround.minisurround" },
+  {
+    "echasnovski/mini.ai",
+    opts = { n_lines = 500 },
+  },
   { import = "astrocommunity.motion.mini-ai.mini-ai" },
   { import = "astrocommunity.editing-support.todo-comments-nvim.todo-comments-nvim" },
   { import = "astrocommunity.comment/mini-comment.mini-comment" },

@@ -54,14 +54,13 @@ return {
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
-  {
-    "nvim-orgmode/orgmode",
-    ft = "org",
-    opts = {
-      org_agenda_files = { "~/orgs/*" },
-      org_default_notes_file = "~/orgs/refile.org",
-    },
-  },
+  -- {
+  --   "nvim-orgmode/orgmode",
+  --   opts = {
+  --     org_agenda_files = { "~/orgs/*" },
+  --     org_default_notes_file = "~/orgs/refile.org",
+  --   },
+  -- },
   -- DiffviewOpen HEAD~2 --cached ;; DiffviewFileHistory %
   {
     "sindrets/diffview.nvim",

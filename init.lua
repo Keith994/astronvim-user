@@ -35,6 +35,6 @@ config.mappings = require "user.mappings"
 config.lazy = require "user.lazy"
 config.plugins = require "user.plugins"
 -- Set colorscheme to use
-config.colorscheme = "catppuccin-macchiato"
+config.colorscheme = "tokyonight"
 
 return config
