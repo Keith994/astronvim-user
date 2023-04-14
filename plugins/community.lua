@@ -61,7 +61,7 @@ return {
   { import = "astrocommunity.scrolling.mini-animate.mini-animate" },
   { import = "astrocommunity.project.nvim-spectre.nvim-spectre" },
   { import = "astrocommunity/pack/astro/astro" },
-  { import = "astrocommunity.pack.go.go" },
+  -- { import = "astrocommunity.pack.go.go" },
   {
     "olexsmir/gopher.nvim",
     enabled = false,
