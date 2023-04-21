@@ -1,16 +1,17 @@
 return {
+  { "jay-babu/mason-nvim-dap.nvim", version = "2.0.1" },
   {
     "lewis6991/gitsigns.nvim",
-    opts = {
-      current_line_blame = true,
-      current_line_blame_opts = { delay = 1000 },
-    },
+    -- opts = {
+    --   current_line_blame = false,
+    --   current_line_blame_opts = { delay = 1000 },
+    -- },
     dependencies = {
       {
         "akinsho/git-conflict.nvim",
         opts = {
-          default_mappings = false, -- disable buffer local mapping created by this plugin
-          default_commands = true, -- disable commands created by this plugin
+          default_mappings = false,   -- disable buffer local mapping created by this plugin
+          default_commands = true,    -- disable commands created by this plugin
           disable_diagnostics = true, -- This will disable the diagnostics in a buffer whilst it is conflicted
           highlights = {
             -- They must have background color, otherwise the default color will be used
@@ -35,39 +36,6 @@ return {
   --     show_current_context = true,
   --   },
   -- },
-  {
-    "hrsh7th/nvim-cmp",
-    keys = { ":", "/", "?" }, -- lazy load cmp on more keys along with insert mode
-    dependencies = {
-      "hrsh7th/cmp-cmdline",  -- add cmp-cmdline as dependency of cmp
-    },
-    config = function(_, opts)
-      local cmp = require "cmp"
-      -- run cmp setup
-      cmp.setup(opts)
-
-      -- configure `cmp-cmdline` as described in their repo: https://github.com/hrsh7th/cmp-cmdline#setup
-      cmp.setup.cmdline("/", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "buffer" },
-        },
-      })
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "path" },
-        }, {
-          {
-            name = "cmdline",
-            option = {
-              ignore_cmds = { "Man", "!" },
-            },
-          },
-        }),
-      })
-    end,
-  },
   {
     "rebelot/heirline.nvim",
     opts = function(_, opts)
