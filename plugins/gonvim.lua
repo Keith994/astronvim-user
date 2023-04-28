@@ -1,4 +1,3 @@
-local utils = require "astronvim.utils"
 local create_command = vim.api.nvim_create_user_command
 return {
   {
@@ -23,7 +22,7 @@ return {
         log_path = vim.fn.expand "$HOME" .. "/tmp/gonvim.log",
         lsp_codelens = true,
         comment_placeholder = "Keith",
-        dap_debug = false,
+        dap_debug = true,
         dap_debug_gui = false,
         dap_debug_vt = false,
         dap_debug_keymap = false, -- true: use keymap for debugger defined in go/dap.lua
@@ -66,9 +65,6 @@ return {
         function() require("telescope").extensions.goimpl.goimpl {} end,
         { desc = "Telescope go impl" }
       )
-      -- local maps = { n = {} }
-      -- maps.n["gA"] = { "<cmd>GoCodeLenAct<CR>", desc = "Go CodeLenAct" }
-      -- utils.set_mappings(astronvim.user_opts("lsp.mappings", maps, true))
       return opts
     end,
   },

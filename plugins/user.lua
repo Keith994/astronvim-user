@@ -46,6 +46,7 @@ return {
   },
   {
     "andymass/vim-matchup",
+    enabled = false,
     event = "BufReadPost",
     init = function()
       vim.g.matchup_enabled = 1
