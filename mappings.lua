@@ -1,9 +1,10 @@
-local maps = { n = {}, i = {}, v = {}, t = {}, c = {}, [""] = {} }
+local maps = { n = {}, i = {}, v = {}, o = {}, x = {}, t = {}, c = {},[""] = {} }
 
 maps[""]["<Space>"] = ""
 maps.n["<leader>c"] = ""
 maps.n["<leader>C"] = ""
 maps.n["<leader>w"] = { "󱂬 Windows", desc = nil }
+maps.n["<leader>x"] = { " Trouble", desc = nil }
 
 maps.n["<localleader>w"] = { "<cmd>w<cr>", desc = "Save" }
 maps.n[";"] = { ":" }
@@ -104,4 +105,26 @@ maps.n["<leader>dL"] = {
 maps.n["<leader>gT"] = { "<cmd>GitConflictChooseTheirs<cr>", desc = "Choose Theirs" }
 maps.n["<leader>gO"] = { "<cmd>GitConflictChooseOurs<cr>", desc = "Choose Ours" }
 maps.n["<leader>gB"] = { "<cmd>GitConflictChooseBoth<cr>", desc = "Choose Both" }
+
+maps.n["<A-j>"] = { "<cmd>m .+1<cr>==", desc = "Move down" }
+maps.n["<A-k>"] = { "<cmd>m .-2<cr>==", desc = "Move up" }
+maps.i["<A-j>"] = { "<esc><cmd>m .+1<cr>==gi", desc = "Move down" }
+maps.i["<A-k>"] = { "<esc><cmd>m .-2<cr>==gi", desc = "Move up" }
+maps.v["<A-j>"] = { ":m '>+1<cr>gv==gv", desc = "Move down" }
+maps.v["<A-k>"] = { ":m '<-2<cr>gv==gv", desc = "Move up" }
+
+-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+maps.n["n"] = { "'Nn'[v:searchforward]", expr = true, desc = "Next search result" }
+maps.x["n"] = { "'Nn'[v:searchforward]", expr = true, desc = "Next search result" }
+maps.o["n"] = { "'Nn'[v:searchforward]", expr = true, desc = "Next search result" }
+maps.n["N"] = { "'nN'[v:searchforward]", expr = true, desc = "Prev search result" }
+maps.x["N"] = { "'nN'[v:searchforward]", expr = true, desc = "Prev search result" }
+maps.o["N"] = { "'nN'[v:searchforward]", expr = true, desc = "Prev search result" }
+
+maps.n["<leader>xl"] = { "<cmd>lopen<cr>",  desc = "Location List" }
+maps.n["<leader>xq"] = { "<cmd>copen<cr>",  desc = "Location List" }
+
+maps.n["[q"] = { vim.cmd.cprev,  desc = "Previous quickfix" }
+maps.n["]q"] = { vim.cmd.cnext,  desc = "Next quickfix" }
+
 return maps

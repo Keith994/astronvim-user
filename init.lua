@@ -10,7 +10,7 @@ config.icons = {
   GitDelete = "",
 }
 -- figure AstroNvim updates
-config.updater = {
+config.upater = {
   remote = "origin",     -- remote to use
   channel = "nightly",   -- "stable" or "nightly"
   version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
@@ -33,6 +33,6 @@ config.mappings = require "user.mappings"
 config.lazy = require "user.lazy"
 config.plugins = require "user.plugins"
 -- Set colorscheme to use
--- config.colorscheme = "terafox"
+config.colorscheme = "iceberg"
 
 return config
