@@ -127,4 +127,6 @@ maps.n["<leader>xq"] = { "<cmd>copen<cr>",  desc = "Location List" }
 maps.n["[q"] = { vim.cmd.cprev,  desc = "Previous quickfix" }
 maps.n["]q"] = { vim.cmd.cnext,  desc = "Next quickfix" }
 
+
+maps.n["<localleader>t"] = { function() require('dropbar.api').pick() end,  desc = "Next quickfix" }
 return maps

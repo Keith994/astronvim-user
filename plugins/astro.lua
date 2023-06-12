@@ -117,6 +117,23 @@ return {
             surround = { separator = "none", color = "file_info_bg", condition = false },
           },
         },
+        {
+          status.component.builder {
+            -- astronvim.get_icon gets the user interface icon for a closed folder with a space after it
+            { provider = require("astronvim.utils").get_icon "WordFile" },
+            -- add padding after icon
+            padding = { right = 1 },
+            -- set the foreground color to be used for the icon
+            hl = { fg = "bg" },
+            -- use the right separator and define the background color
+            surround = { separator = "right", color = { main = "grey", left = "file_info_bg" }  },
+          },
+          status.component.builder {--󰷾
+            { provider = status.provider.file_encoding() },
+            -- use no separator for this part but define a background color
+            surround = { separator = "none", color = "file_info_bg", condition = false },
+          },
+        },
         -- the final component of the NvChad statusline is the navigation section
         -- this is very similar to the previous current working directory section with the icon
         { -- make nav section with icon border

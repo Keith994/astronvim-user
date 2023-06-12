@@ -44,6 +44,7 @@ return {
   -- { import = "astrocommunity.color.tint-nvim" },
   { import = "astrocommunity.color.headlines-nvim" },
   -- { import = "astrocommunity.media.drop-nvim" },
+  -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
   { import = "astrocommunity.code-runner.overseer-nvim" },
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.color.modes-nvim" },
@@ -85,6 +86,7 @@ return {
   { import = "astrocommunity.editing-support.nvim-ts-rainbow2.nvim-ts-rainbow2" },
   { import = "astrocommunity.editing-support.nvim-regexplainer.nvim-regexplainer" },
   { import = "astrocommunity.editing-support.dial-nvim.dial-nvim" },
+  -- { import = "astrocommunity.completion.codeium-vim" }, -- 免费的AI编程助手，会收集信息
   { import = "astrocommunity.editing-support.mini-splitjoin.mini-splitjoin" },
   -- { import = "astrocommunity.diagnostics.lsp_lines-nvim.lsp_lines-nvim" },
   -- { import = "astrocommunity.utility.noice-nvim" },
