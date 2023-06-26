@@ -10,7 +10,7 @@ return {
     tabstop = 2,
     softtabstop = 2,
     shiftwidth = 2,
-    guifont = "FiraCodeNerdFontCompleteM-Retina:h11",
+    guifont = "IntelOne Mono Medium:h12",
     showcmd = false,
     cmdheight = 1,
   },
