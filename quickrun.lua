@@ -9,7 +9,7 @@ M.run_command = function()
   if vim.bo.filetype == "NvimTree" then return end
   if file_type == "go" then
     if file_name:match "_test" then
-      vim.cmd ":GoTestFunc -v -count=0"
+      vim.cmd ":GoTestFunc -v -count=1 -p"
     else
       vim.cmd ":GoRun"
     end

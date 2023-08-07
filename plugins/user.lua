@@ -151,25 +151,25 @@ return {
     cmd = { "NerdIcons" },
     config = function() require("nerdicons").setup {} end,
   },
-  {
-    "kristijanhusak/vim-dadbod-ui",
-    cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection" },
-    init = function()
-      vim.g.db_ui_use_nerd_fonts = 1
-      vim.g.dbs = require "user.plugins.dbs_url.dbs"
-      vim.g.db_ui_save_location = "~/db_ui_queries"
-      vim.g.db_ui_win_position = "right"
-      -- vim.g.db_ui_disable_mappings = 1
-      vim.g.db_ui_show_database_icon = 1
-    end,
-    config = function()
-    end,
-    dependencies = {
-      { "tpope/vim-dadbod", cmd = "DB" },
-      {
-        "nanotee/sqls.nvim",
-        ft = "sql",
-      },
-    },
-  },
+  -- {
+  --   "kristijanhusak/vim-dadbod-ui",
+  --   cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection" },
+  --   init = function()
+  --     vim.g.db_ui_use_nerd_fonts = 1
+  --     vim.g.dbs = require "user.plugins.dbs_url.dbs"
+  --     vim.g.db_ui_save_location = "~/db_ui_queries"
+  --     vim.g.db_ui_win_position = "right"
+  --     -- vim.g.db_ui_disable_mappings = 1
+  --     vim.g.db_ui_show_database_icon = 1
+  --   end,
+  --   config = function()
+  --   end,
+  --   dependencies = {
+  --     { "tpope/vim-dadbod", cmd = "DB" },
+  --     {
+  --       "nanotee/sqls.nvim",
+  --       ft = "sql",
+  --     },
+  --   },
+  -- },
 }
