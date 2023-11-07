@@ -100,6 +100,8 @@ return {
   { import = "astrocommunity.editing-support.dial-nvim" },
   -- { import = "astrocommunity.completion.codeium-vim" }, -- 免费的AI编程助手，会收集信息
   { import = "astrocommunity.editing-support.mini-splitjoin" },
+  { import = "astrocommunity.git.neogit" },
+  { import = "astrocommunity.test.nvim-coverage" },
   -- { import = "astrocommunity.diagnostics.lsp_lines-nvim.lsp_lines-nvim" },
   -- { import = "astrocommunity.utility.noice-nvim" },
   -- {
