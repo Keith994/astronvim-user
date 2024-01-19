@@ -11,6 +11,10 @@ return {
   -- { "cocopon/iceberg.vim",                              lazy = false },
   { import = "astrocommunity.colorscheme.catppuccin" },
   {
+    "projekt0n/github-nvim-theme",
+    lazy = false,
+  },
+  {
     "catppuccin",
     lazy = false,
     opts = {
@@ -39,7 +43,7 @@ return {
   -- { import = "astrocommunity.colorscheme.onigiri" },
   -- { "kaiuri/onigiri.nvim", lazy = false },
   -- { import = "astrocommunity.colorscheme.tokyonight" },
-  -- { "folke/tokyonight.nvim", lazy = false },
+  { "folke/tokyonight.nvim", lazy = false },
   -- { import = "astrocommunity.color.ccc-nvim" },
   -- { import = "astrocommunity.color.tint-nvim" },
   { import = "astrocommunity.color.headlines-nvim" },
