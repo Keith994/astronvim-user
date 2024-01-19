@@ -10,8 +10,8 @@ return {
       {
         "akinsho/git-conflict.nvim",
         opts = {
-          default_mappings = false,   -- disable buffer local mapping created by this plugin
-          default_commands = true,    -- disable commands created by this plugin
+          default_mappings = false, -- disable buffer local mapping created by this plugin
+          default_commands = true, -- disable commands created by this plugin
           disable_diagnostics = true, -- This will disable the diagnostics in a buffer whilst it is conflicted
           highlights = {
             -- They must have background color, otherwise the default color will be used
@@ -54,7 +54,7 @@ return {
             -- it's a left element, so use the left separator
             separator = "left",
             -- set the color of the surrounding based on the current mode using astronvim.utils.status module
-            color = function() return { main = status.hl.mode_bg(), right = "blank_bg" } end,
+            color = function() return { main = status.hl.mode_bg(), right = "mode_right" } end,
           },
         },
         -- we want an empty space here so we can use the component builder to make a new section with just an empty string
@@ -62,7 +62,7 @@ return {
           { provider = "" },
           -- define the surrounding separator and colors to be used inside of the component
           -- and the color to the right of the separated out section
-          surround = { separator = "left", color = { main = "blank_bg", right = "file_info_bg" } },
+          surround = { separator = "left", color = { main = "mode_right", right = "file_info_bg" } },
         },
         -- add a section for the currently opened file information
         status.component.file_info {
@@ -70,14 +70,24 @@ return {
           file_icon = { padding = { left = 0 } },
           filename = { fallback = "Empty" },
           -- add padding
-          padding = { right = 1 },
+          -- padding = { right = 1 },
           -- define the section separator
-          surround = { separator = "left", condition = false },
+          surround = {
+            separator = "left",
+            condition = false,
+            color = { main = "file_info_bg", right = "git_branch_bg" },
+          },
         },
         -- add a component for the current git branch if it exists and use no separator for the sections
-        status.component.git_branch { surround = { separator = "none" } },
+        status.component.git_branch {
+
+          surround = { separator = "left", color = { main = "git_branch_bg", right = "bg" } },
+        },
         -- add a component for the current git diff if it exists and use no separator for the sections
-        status.component.git_diff { padding = { left = 1 }, surround = { separator = "none" } },
+        status.component.git_diff {
+          padding = { left = 1 },
+          surround = { separator = "left", condition = false, color = { main = "bg" } },
+        },
         -- fill the rest of the statusline
         -- the elements after this will appear in the middle of the statusline
         status.component.fill(),
@@ -114,7 +124,7 @@ return {
             file_modified = false,
             file_read_only = false,
             -- use no separator for this part but define a background color
-            surround = { separator = "none", color = "file_info_bg", condition = false },
+            surround = { separator = "none", color = "folder_bg", condition = false },
           },
         },
         {
@@ -126,12 +136,12 @@ return {
             -- set the foreground color to be used for the icon
             hl = { fg = "bg" },
             -- use the right separator and define the background color
-            surround = { separator = "right", color = { main = "grey", left = "file_info_bg" }  },
+            surround = { separator = "right", color = { main = "word_file_icon_bg", left = "folder_bg" } },
           },
-          status.component.builder {--󰷾
+          status.component.builder { --󰷾
             { provider = status.provider.file_encoding() },
             -- use no separator for this part but define a background color
-            surround = { separator = "none", color = "file_info_bg", condition = false },
+            surround = { separator = "none", color = "word_file_bg", condition = false },
           },
         },
         -- the final component of the NvChad statusline is the navigation section
@@ -146,7 +156,7 @@ return {
             hl = { fg = "bg" },
             -- use the right separator and define the background color
             -- as well as the color to the left of the separator
-            surround = { separator = "right", color = { main = "nav_icon_bg", left = "file_info_bg" } },
+            surround = { separator = "right", color = { main = "scroll_text_icon_bg", left = "word_file_bg" } },
           },
           -- add a navigation component and just display the percentage of progress in the file
           status.component.nav {
@@ -156,7 +166,7 @@ return {
             ruler = false,
             scrollbar = false,
             -- use no separator and define the background color
-            surround = { separator = "none", color = "file_info_bg" },
+            surround = { separator = "none", color = "scroll_text_bg" },
           },
         },
       }
