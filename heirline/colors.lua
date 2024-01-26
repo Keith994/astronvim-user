@@ -11,7 +11,8 @@ return function(hl)
   hl.mode_fg = fg_color
   hl.mode_right = "#009688"
 
-  hl.file_info_bg = "#03A9F4"
+  hl.file_info_fg = "#2d3436"
+  hl.file_info_bg = "#00BCD4"
 
   -- hl.inactive = HeirlineInactive
   hl.normal = "#4CAF50"
@@ -21,8 +22,8 @@ return function(hl)
   hl.command = "#FFC107"
   hl.terminal = "#795548"
 
-  hl.git_branch_fg = fg_color
-  hl.git_branch_bg = "#00BCD4"
+  hl.git_branch_fg = "#2d3436"
+  hl.git_branch_bg = "#03A9F4"
 
   hl.git_diff = "#9E9E9E"
 

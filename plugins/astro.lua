@@ -120,6 +120,7 @@ return {
             -- function to get the current working directory name
             filename = { fname = function(nr) return vim.fn.getcwd(nr) end, padding = { left = 1 } },
             -- disable all other elements of the file_info component
+            hl = { fg = "section_fg" },
             file_icon = false,
             file_modified = false,
             file_read_only = false,
