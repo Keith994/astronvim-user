@@ -1,38 +1,19 @@
-local config = {}
-config.highlights = require "user.highlights"
+-- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
+-- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
+local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
+  -- stylua: ignore
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
+end
+vim.opt.rtp:prepend(lazypath)
 
-config.icons = {
-  VimIcon = "",
-  ScrollText = "",
-  GitBranch = "",
-  GitAdd = "",
-  GitChange = "",
-  GitDelete = "",
-}
--- figure AstroNvim updates
-config.upater = {
-  remote = "origin", -- remote to use
-  channel = "nightly", -- "stable" or "nightly"
-  version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-  branch = "nightly", -- branch name (NIGHTLY ONLY)
-  commit = nil, -- commit hash (NIGHTLY ONLY)
-  pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
-  skip_prompts = false, -- skip prompts about breaking changes
-  show_changelog = true, -- show the changelog after performing an update
-  auto_quit = true, -- automatically quit the current session after a successful update
-  -- remotes = { -- easily add new remotes to track
-  --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
-  --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
-  --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
-  -- },
-}
+-- validate that lazy is available
+if not pcall(require, "lazy") then
+  -- stylua: ignore
+  vim.api.nvim_echo({ { ("Unable to load lazy from: %s\n"):format(lazypath), "ErrorMsg" }, { "Press any key to exit...", "MoreMsg" } }, true, {})
+  vim.fn.getchar()
+  vim.cmd.quit()
+end
 
-config.diagnostics = require "user.diagnostics"
-config.lsp = require "user.lsp"
-config.mappings = require "user.mappings"
-config.lazy = require "user.lazy"
-config.plugins = require "user.plugins"
--- Set colorscheme to use
-config.colorscheme = "tokyonight-night"
-
-return config
+require "lazy_setup"
+require "polish"
