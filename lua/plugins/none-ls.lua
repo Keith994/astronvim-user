@@ -1,5 +1,5 @@
 -- Customize None-ls sources
-
+if vim.g.vscode then return {} end
 ---@type LazySpec
 return {
   "nvimtools/none-ls.nvim",

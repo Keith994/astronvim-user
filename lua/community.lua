@@ -5,8 +5,10 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+  { import = "astrocommunity.recipes.vscode" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
   -- import/override with your plugins folder
   --
   -- { import = "astrocommunity.code-runner.overseer-nvim" },
@@ -41,10 +43,24 @@ return {
   -- },
   -- { import = "astrocommunity.motion.mini-ai.mini-ai" },
   { import = "astrocommunity.comment.mini-comment" },
+  -- { import = "astrocommunity.pack.go" },
+  { import = "astrocommunity.pack.json" },
+  -- { import = "astrocommunity.pack.proto" },
+  { import = "astrocommunity.programming-language-support.nvim-jqx" },
   -- { import = "astrocommunity.editing-support.nvim-regexplainer" },
   -- { import = "astrocommunity.editing-support.dial-nvim" },
   -- { import = "astrocommunity.completion.codeium-vim" }, -- 免费的AI编程助手，会收集信息
   { import = "astrocommunity.editing-support.mini-splitjoin" },
   { import = "astrocommunity.git.neogit" },
+  { import = "astrocommunity.git.fugit2-nvim" },
+  { import = "astrocommunity.git.blame-nvim" },
+  { import = "astrocommunity.editing-support.suda-vim" },
+  { import = "astrocommunity.completion.cmp-cmdline" },
+  -- { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
+  { import = "astrocommunity.debugging.telescope-dap-nvim" },
+  { import = "astrocommunity.media.pets-nvim" },
+  { import = "astrocommunity.media.image-nvim" },
+  { import = "astrocommunity.motion.nvim-spider" },
+  -- { import = "astrocommunity.indent.indent-rainbowline" },
   -- { import = "astrocommunity.test.nvim-coverage" },
 }

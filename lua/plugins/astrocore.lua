@@ -137,6 +137,7 @@ return {
         ["[q"] = { vim.cmd.cprev, desc = "Previous quickfix" },
         ["]q"] = { vim.cmd.cnext, desc = "Next quickfix" },
         ["<LocalLeader>t"] = { function() require("dropbar.api").pick() end, desc = "Next quickfix" },
+        ["<Leader>gL"] = { "<cmd>ToggleBlame<cr>", desc = "View File Blame" },
       },
       t = {
         ["<C-q>"] = { "<C-\\><C-n>:q<cr>", desc = "Close terminal" },

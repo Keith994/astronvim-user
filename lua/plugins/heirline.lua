@@ -1,3 +1,4 @@
+if vim.g.vscode then return {} end
 return {
   "rebelot/heirline.nvim",
   opts = function(_, opts)
@@ -30,6 +31,7 @@ return {
         -- enable the file_icon and disable the highlighting based on filetype
         file_icon = { padding = { left = 0 } },
         filename = { fallback = "Empty" },
+        filetype = false,
         -- add padding
         -- padding = { right = 1 },
         -- define the section separator
@@ -79,7 +81,9 @@ return {
         status.component.file_info {
           -- we only want filename to be used and we can change the fname
           -- function to get the current working directory name
+          -- filename = { fname = function(nr) return vim.fn.getcwd(nr) end, padding = { left = 1 } },
           filename = { fname = function(nr) return vim.fn.getcwd(nr) end, padding = { left = 1 } },
+          filetype = false,
           -- disable all other elements of the file_info component
           hl = { fg = "section_fg" },
           file_icon = false,

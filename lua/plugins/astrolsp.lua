@@ -2,6 +2,7 @@
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
+if vim.g.vscode then return {} end
 
 ---@type LazySpec
 return {
@@ -10,9 +11,10 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
+      large_buf = true,
       autoformat = true, -- enable or disable auto formatting on start
       codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      inlay_hints = true, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
@@ -56,42 +58,6 @@ return {
       },
       sqlls = {
         on_attach = function(client, bufnr) require("sqls").on_attach(client, bufnr) end,
-      },
-      jsonls = {
-        settings = {
-          json = {
-            formatting = "jq",
-            validate = { enable = true },
-          },
-        },
-        setup = {
-          commands = {
-            Format = {
-              function() vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line "$", 0 }) end,
-            },
-          },
-        },
-      },
-      gopls = {
-        settings = {
-          go = {
-            formatting = "gofumpt",
-          },
-          gopls = {
-            hints = {
-              compositeLiteralFields = true,
-              assignVariableTypes = true,
-              compositeLiteralTypes = true,
-              constantValues = true,
-              parameterNames = true,
-              functionTypeParameters = true,
-            },
-            analyses = {
-              unusedparams = false,
-            },
-            staticcheck = false,
-          },
-        },
       },
     },
     -- customize how language servers are attached

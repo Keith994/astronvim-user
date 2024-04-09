@@ -1,3 +1,4 @@
+if vim.g.vscode then return {} end
 return {
   "folke/trouble.nvim",
   cmd = { "TroubleToggle", "Trouble" },

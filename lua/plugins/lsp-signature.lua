@@ -1,3 +1,4 @@
+if vim.g.vscode then return {} end
 return {
   "ray-x/lsp_signature.nvim",
   opts = {
