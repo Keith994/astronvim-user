@@ -85,7 +85,7 @@ return {
           filename = { fname = function(nr) return vim.fn.getcwd(nr) end, padding = { left = 1 } },
           filetype = false,
           -- disable all other elements of the file_info component
-          hl = { fg = "section_fg" },
+          hl = { fg = "bg" },
           file_icon = false,
           file_modified = false,
           file_read_only = false,
@@ -106,6 +106,8 @@ return {
         },
         status.component.builder { --󰷾
           { provider = status.provider.file_encoding() },
+
+          hl = { fg = "bg" },
           -- use no separator for this part but define a background color
           surround = { separator = "none", color = "word_file_bg", condition = false },
         },
@@ -126,6 +128,7 @@ return {
         },
         -- add a navigation component and just display the percentage of progress in the file
         status.component.nav {
+          hl = { fg = "bg" },
           -- add some padding for the percentage provider
           percentage = { padding = { right = 1 } },
           -- disable all other providers

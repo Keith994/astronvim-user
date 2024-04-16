@@ -10,8 +10,8 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    -- colorscheme = "tokyonight-night",
-    colorscheme = "catppuccin",
+    colorscheme = "tokyonight",
+    -- colorscheme = "catppuccin",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
@@ -84,7 +84,7 @@ return {
         hl.terminal = "#795548"
 
         hl.git_branch_fg = "#2d3436"
-        hl.git_branch_bg = "#03A9F4"
+        hl.git_branch_bg = "#B6CAE2"
 
         hl.git_diff = "#9E9E9E"
 
@@ -92,13 +92,14 @@ return {
         -- hl.git_changed = "#e67e22"
         -- hl.git_removed = "#f1c40f"
 
-        hl.folder_icon_bg = "#a6e3a2"
-        hl.folder_bg = "#607D8B"
-        hl.word_file_icon_bg = "#a6e3a2"
-        hl.word_file_bg = "#607D8B"
+        hl.folder_icon_bg = "#9D0654"
+        hl.folder_bg = "#B20960"
 
-        hl.scroll_text_icon_bg = "#a6e3a2"
-        hl.scroll_text_bg = "#607D8B"
+        hl.word_file_icon_bg = "#E7BB0D"
+        hl.word_file_bg = "#FFDE59"
+
+        hl.scroll_text_icon_bg = "#A7D350"
+        hl.scroll_text_bg = "#B3E255"
         return hl
       end,
     },

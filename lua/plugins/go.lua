@@ -47,7 +47,7 @@ return {
               diagnosticsDelay = "500ms",
               matcher = "Fuzzy",
               semanticTokens = true,
-              staticcheck = true,
+              staticcheck = false,
               symbolMatcher = "fuzzy",
               usePlaceholders = true,
             },
