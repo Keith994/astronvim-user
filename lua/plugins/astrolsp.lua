@@ -7,6 +7,7 @@ if vim.g.vscode then return {} end
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
+  version = "1.0.4",
   ---@type AstroLSPOpts
   opts = {
     -- Configuration table of features provided by AstroLSP
@@ -14,7 +15,7 @@ return {
       large_buf = true,
       autoformat = true, -- enable or disable auto formatting on start
       codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = true, -- enable/disable inlay hints on start
+      inlay_hints = false, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
@@ -106,10 +107,10 @@ return {
         },
         ["<localleader>f"] = { function() vim.lsp.buf.format() end, desc = "Format code" },
         ["gR"] = { function() vim.lsp.buf.rename() end, desc = "Rename current symbol" },
-        ["gD"] = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", desc = "Type Defnition" },
+        ["g<S-D>"] = { "<Cmd>Trouble lsp_type_definitions toggle<CR>", desc = "Type Defnition" },
         ["gr"] = { "<cmd>Trouble lsp_references<CR>", desc = "References of current symbol" },
-        ["<leader>ld"] = { "<cmd>Trouble document_diagnostics<CR>", desc = "Open document diagnostics" },
-        ["<leader>lw"] = { "<cmd>Trouble workspace_diagnostics<CR>", desc = "Open workspace diagnostics" },
+        ["<leader>ld"] = { "<Cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Open document diagnostics" },
+        ["<leader>lw"] = { "<Cmd>Trouble diagnostics toggle<CR>", desc = "Open workspace diagnostics" },
         ["[d"] = { function() vim.diagnostic.goto_prev {} end, desc = "Previous diagnostic" },
         ["]d"] = { function() vim.diagnostic.goto_next() end, desc = "Next diagnostic" },
         ["gl"] = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
@@ -129,7 +130,7 @@ return {
           end,
           desc = "condition_breakpoint",
         },
-        ["<S-k>"] = {
+        ["K"] = {
           function() require("astrocore.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
           desc = "Next buffer",
         },

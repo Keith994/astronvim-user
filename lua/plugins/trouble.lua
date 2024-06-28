@@ -1,34 +1,69 @@
 if vim.g.vscode then return {} end
 return {
-  "folke/trouble.nvim",
-  cmd = { "TroubleToggle", "Trouble" },
-  opts = { use_diagnostic_signs = true },
-  keys = {
-    { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
-    { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-    { "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
-    { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
-    {
-      "[q",
-      function()
-        if require("trouble").is_open() then
-          require("trouble").previous { skip_groups = true, jump = true }
-        else
-          vim.cmd.cprev()
-        end
-      end,
-      desc = "Previous trouble/quickfix item",
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    dependencies = {
+      { "AstroNvim/astroui", opts = { icons = { Trouble = "󱍼" } } },
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          local prefix = "<Leader>x"
+          maps.n[prefix] = { desc = require("astroui").get_icon("Trouble", 1, true) .. "Trouble" }
+          maps.n[prefix .. "X"] = { "<Cmd>Trouble diagnostics toggle<CR>", desc = "Workspace Diagnostics (Trouble)" }
+          maps.n[prefix .. "x"] =
+            { "<Cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Document Diagnostics (Trouble)" }
+          maps.n[prefix .. "l"] = { "<Cmd>Trouble loclist toggle<CR>", desc = "Location List (Trouble)" }
+          maps.n[prefix .. "q"] = { "<Cmd>Trouble quickfix toggle<CR>", desc = "Quickfix List (Trouble)" }
+          if require("astrocore").is_available "todo-comments.nvim" then
+            maps.n[prefix .. "t"] = {
+              "<cmd>Trouble todo<cr>",
+              desc = "Todo (Trouble)",
+            }
+            maps.n[prefix .. "T"] = {
+              "<cmd>Trouble todo filter={tag={TODO,FIX,FIXME}}<cr>",
+              desc = "Todo/Fix/Fixme (Trouble)",
+            }
+          end
+        end,
+      },
     },
-    {
-      "]q",
-      function()
-        if require("trouble").is_open() then
-          require("trouble").next { skip_groups = true, jump = true }
-        else
-          vim.cmd.cnext()
-        end
-      end,
-      desc = "Next trouble/quickfix item",
-    },
+    opts = function()
+      local get_icon = require("astroui").get_icon
+      local lspkind_avail, lspkind = pcall(require, "lspkind")
+      return {
+        auto_refresh = false,
+        keys = {
+          ["<ESC>"] = "close",
+          ["q"] = "close",
+          ["<C-E>"] = "close",
+        },
+        icons = {
+          indent = {
+            fold_open = get_icon "FoldOpened",
+            fold_closed = get_icon "FoldClosed",
+          },
+          folder_closed = get_icon "FolderClosed",
+          folder_open = get_icon "FolderOpen",
+          kinds = lspkind_avail and lspkind.symbol_map,
+        },
+      }
+    end,
+  },
+  { "lewis6991/gitsigns.nvim", opts = { trouble = true } },
+  {
+    "folke/edgy.nvim",
+    optional = true,
+    opts = function(_, opts)
+      if not opts.bottom then opts.bottom = {} end
+      table.insert(opts.bottom, "Trouble")
+    end,
+  },
+  {
+    "catppuccin",
+    optional = true,
+    ---@type CatppuccinOptions
+    opts = { integrations = { lsp_trouble = true } },
   },
 }

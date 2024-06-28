@@ -18,10 +18,10 @@ return {
                 nilness = true,
                 nonewvars = true,
                 shadow = true,
-                undeclaredname = true,
+                undeclaredname = false,
                 unreachable = true,
-                unusedparams = true,
-                unusedwrite = true,
+                unusedparams = false,
+                unusedwrite = false,
                 useany = true,
               },
               codelenses = {
@@ -34,13 +34,13 @@ return {
                 vendor = true,
               },
               hints = {
-                assignVariableTypes = true,
-                compositeLiteralFields = true,
-                compositeLiteralTypes = true,
-                constantValues = true,
-                functionTypeParameters = true,
-                parameterNames = true,
-                rangeVariableTypes = true,
+                assignVariableTypes = false,
+                compositeLiteralFields = false,
+                compositeLiteralTypes = false,
+                constantValues = false,
+                functionTypeParameters = false,
+                parameterNames = false,
+                rangeVariableTypes = false,
               },
               buildFlags = { "-tags", "integration" },
               completeUnimported = true,
@@ -72,10 +72,8 @@ return {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
-        { "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
-      )
+      opts.ensure_installed =
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "gomodifytags", "gofumpt", "iferr", "impl" })
     end,
   },
   {
@@ -91,7 +89,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "delve", "gopls", "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
+        { "delve", "gopls", "gomodifytags", "gofumpt", "iferr", "impl" }
       )
     end,
   },
@@ -112,9 +110,13 @@ return {
   },
   {
     "ray-x/go.nvim",
+    -- commit = "591a0b8",
     ft = { "go", "gomod" },
     dependencies = {
-      { "ray-x/guihua.lua" },
+      {
+        "ray-x/guihua.lua",
+        -- commit = "3b3126a"
+      },
       {
         "edolphin-ydf/goimpl.nvim",
         dependencies = {
@@ -130,7 +132,7 @@ return {
       local opts = {
         -- verbose = true,
         log_path = vim.fn.expand "$HOME" .. "/tmp/gonvim.log",
-        lsp_codelens = true,
+        lsp_codelens = false,
         comment_placeholder = "Keith",
         dap_debug = true,
         dap_debug_gui = false,
@@ -140,35 +142,7 @@ return {
         icons = false,
         sign_priority = 500,
         lsp_inlay_hints = {
-          enable = true,
-          -- Only show inlay hints for the current line
-          only_current_line = true,
-          -- Event which triggers a refersh of the inlay hints.
-          -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
-          -- not that this may cause higher CPU usage.
-          -- This option is only respected when only_current_line and
-          -- autoSetHints both are true.
-          -- only_current_line_autocmd = "CursorHold",
-          only_current_line_autocmd = "CursorHold",
-          autoSetHints = true,
-          -- whether to show variable name before type hints with the inlay hints or not
-          -- default: false
-          show_variable_name = true,
-          -- prefix for parameter hints
-          parameter_hints_prefix = "󰊕 ",
-          show_parameter_hints = true,
-          -- prefix for all the other hints (type, chaining)
-          other_hints_prefix = "=> ",
-          -- whether to align to the lenght of the longest line in the file
-          max_len_align = false,
-          -- padding from the left if max_len_align is true
-          max_len_align_padding = 1,
-          -- whether to align to the extreme right or not
-          right_align = false,
-          -- padding from the right if right_align is true
-          right_align_padding = 6,
-          -- The color of the hints
-          highlight = "Comment",
+          enable = false,
         },
       }
 

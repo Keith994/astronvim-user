@@ -11,7 +11,7 @@ return {
     -- Configure core features of AstroNvim
     features = {
       large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
-      autopairs = true, -- enable autopairs at start
+      autopairs = false, -- enable autopairs at start
       cmp = true, -- enable completion at start
       diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
       highlighturl = true, -- highlight URLs at start
@@ -20,7 +20,7 @@ return {
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
       virtual_text = true,
-      underline = true,
+      underline = false,
     },
     -- vim options can be configured here
     options = {
@@ -55,8 +55,8 @@ return {
         ["<Leader>x"] = { " Trouble", desc = nil },
         ["<LocalLeader>w"] = { "<cmd>w<cr>", desc = "Save" },
         [";"] = { ":" },
-        ["<S-h>"] = { "^" },
-        ["<S-l>"] = { "$" },
+        ["H"] = { "^" },
+        ["L"] = { "$" },
         ["<LocalLeader>p"] = { ':echo expand("%:p:f")<cr>' },
         ["<Leader>r"] = { '<cmd>lua require"quickrun".run_command()<cr>', desc = "QuickRun" },
         ["<Leader><Enter>"] = { "<cmd>nohlsearch<cr>", desc = "No Highlight" },
@@ -99,11 +99,11 @@ return {
           function() require("astrocore.buffer").close(0, true) end,
           desc = "Force close buffer",
         },
-        ["<S-k>"] = {
+        ["K"] = {
           function() require("astrocore.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
           desc = "Next buffer",
         },
-        ["<S-j>"] = {
+        ["J"] = {
           function() require("astrocore.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
           desc = "Previous buffer",
         },
@@ -137,7 +137,7 @@ return {
         ["[q"] = { vim.cmd.cprev, desc = "Previous quickfix" },
         ["]q"] = { vim.cmd.cnext, desc = "Next quickfix" },
         ["<LocalLeader>t"] = { function() require("dropbar.api").pick() end, desc = "Next quickfix" },
-        ["<Leader>gL"] = { "<cmd>ToggleBlame<cr>", desc = "View File Blame" },
+        ["<Leader>gL"] = { "<cmd>BlameToggle<cr>", desc = "View File Blame" },
       },
       t = {
         ["<C-q>"] = { "<C-\\><C-n>:q<cr>", desc = "Close terminal" },
