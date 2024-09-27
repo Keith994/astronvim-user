@@ -16,7 +16,7 @@ return {
 
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.syntax.hlargs-nvim" },
-  { import = "astrocommunity.project.nvim-spectre" },
+  { import = "astrocommunity.search.nvim-spectre" },
   { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.pack.rust" },
@@ -45,6 +45,7 @@ return {
   { import = "astrocommunity.comment.mini-comment" },
   -- { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.cs" },
   -- { import = "astrocommunity.pack.proto" },
   { import = "astrocommunity.programming-language-support.nvim-jqx" },
   -- { import = "astrocommunity.editing-support.nvim-regexplainer" },

@@ -7,7 +7,7 @@ if vim.g.vscode then return {} end
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
-  version = "1.0.4",
+  -- version = "1.0.4",
   ---@type AstroLSPOpts
   opts = {
     -- Configuration table of features provided by AstroLSP
