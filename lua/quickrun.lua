@@ -14,11 +14,17 @@ M.run_command = function()
       vim.cmd ":GoRun"
     end
     return
-  else
-    cmd = m[file_type][1]
-  end
-  if file_type == "rs" then
-    vim.cmd("RustRunnables")
+  elseif file_type == "java" then
+    if file_name:match "Test" then
+      print "Run: JavaTestRunCurrentMethod"
+      vim.cmd ":JavaTestRunCurrentMethod"
+      require("dapui").open { layout = 2 }
+    else
+      print "Run: JavaRunnerRunMain"
+      vim.cmd ":JavaRunnerRunMain"
+    end
+  elseif file_type == "rs" then
+    vim.cmd "RustRunnables"
   else
     print "Quick Run: "
     local output_list = vim.fn.split(vim.fn.system(cmd .. file_name), "\n")

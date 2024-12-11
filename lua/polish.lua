@@ -23,3 +23,14 @@ create_command(
   { desc = "load current dir session" }
 )
 create_command("DI", function() vim.cmd "DBUI" end, { desc = "DBUI" })
+create_command("DapUIOpen", function() require("dapui").open() end, { desc = "DapUI Open" })
+create_command("DapUIClose", function() require("dapui").close() end, { desc = "DapUI Close" })
+create_command(
+  "DapConsole",
+  function()
+    require("dapui").toggle {
+      layout = 2,
+    }
+  end,
+  { desc = "DapUI Console Toggle" }
+)
