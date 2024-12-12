@@ -33,7 +33,8 @@ return {
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.test.nvim-coverage" },
-  { import = "astrocommunity.git.mini-diff" },
+  -- { import = "astrocommunity.pack.java" },
+  -- { import = "astrocommunity.git.mini-diff" },
   {
     "kristijanhusak/vim-dadbod-ui",
     init = function()

@@ -16,12 +16,9 @@ M.run_command = function()
     return
   elseif file_type == "java" then
     if file_name:match "Test" then
-      print "Run: JavaTestRunCurrentMethod"
-      vim.cmd ":JavaTestRunCurrentMethod"
-      require("dapui").open { layout = 2 }
+      require("jdtls").test_nearest_method()
     else
-      print "Run: JavaRunnerRunMain"
-      vim.cmd ":JavaRunnerRunMain"
+      require("dap").continue()
     end
   elseif file_type == "rs" then
     vim.cmd "RustRunnables"
