@@ -54,8 +54,8 @@ return {
     opts = function(_, opts)
       local utils = require "astrocore"
       -- use this function notation to build some variables
-      -- local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
-      local root_markers = { ".git", ".project" }
+      local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
+      -- local root_markers = { ".git", ".project" }
       -- local root_dir = require("jdtls.setup").find_root(root_markers)
       local root_dir =
         vim.fs.dirname(vim.fs.find({ ".git", "pom.xml", ".project", "gradlew", "mvnw" }, { upward = true })[1])
@@ -115,8 +115,8 @@ return {
             },
             maven = { downloadSources = true },
             implementationsCodeLens = { enabled = true },
-            referencesCodeLens = { enabled = true },
-            inlayHints = { parameterNames = { enabled = "all" } },
+            referencesCodeLens = { enabled = false },
+            inlayHints = { parameterNames = { enabled = false } },
             signatureHelp = { enabled = true },
             completion = {
               favoriteStaticMembers = {
