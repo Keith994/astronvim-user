@@ -9,4 +9,6 @@ return {
   ["大栋"] = "mysql://prod_waven:if57IEtggka@127.0.0.1:9494?ssl-mode=DISABLED",
   ["redis186"] = "redis://:123456@10.30.0.186:6379",
   ["redis130"] = "redis://:S1GzxS04kkOaAbWX@10.23.3.130:6379",
+  ["localMysql"] = "mysql://qa_waven:if57IEtggkaH7Pcm@127.0.0.1:3306?ssl-mode=DISABLED",
+  ["localRedis"] = "redis://:S1GzxS04kkOaAbWX@127.0.0.1:6379",
 }

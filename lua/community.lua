@@ -23,6 +23,7 @@ return {
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.pack.html_css" },
   { import = "astrocommunity.pack.fish" },
+  { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.full-dadbod" },
   {
     "kristijanhusak/vim-dadbod-ui",

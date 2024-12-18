@@ -58,7 +58,7 @@ return {
         ["H"] = { "^" },
         ["L"] = { "$" },
         ["<LocalLeader>p"] = { ':echo expand("%:p:f")<cr>' },
-        ["<Leader>r"] = { '<cmd>lua require"quickrun".run_command()<cr>', desc = "QuickRun" },
+        ["<Leader>rr"] = { '<cmd>lua require"quickrun".run_command()<cr>', desc = "QuickRun" },
         ["<Leader><Enter>"] = { "<cmd>nohlsearch<cr>", desc = "No Highlight" },
         ["<C-w>"] = { " <cmd>wq<cr>", desc = "Write and Quit Window" },
         ["<C-q>"] = {
