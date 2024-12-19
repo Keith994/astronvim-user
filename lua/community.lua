@@ -21,7 +21,7 @@ return {
   { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.docker" },
-  { import = "astrocommunity.pack.html_css" },
+  { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.fish" },
   { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.full-dadbod" },
@@ -56,7 +56,7 @@ return {
   { import = "astrocommunity.search.nvim-spectre" },
   { import = "astrocommunity.comment.mini-comment" },
   { import = "astrocommunity.programming-language-support.nvim-jqx" },
-  -- { import = "astrocommunity.completion.codeium-vim" }, -- 免费的AI编程助手，会收集信息
+  { import = "astrocommunity.completion.blink-cmp" }, -- 免费的AI编程助手，会收集信息
   { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.git.blame-nvim" },
   { import = "astrocommunity.debugging.telescope-dap-nvim" },

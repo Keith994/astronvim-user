@@ -5,18 +5,25 @@ return {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         local dapui = require "dapui"
+        local windows = require "dapui.windows"
         local maps = opts.mappings
+        local toggleUI = function(num)
+          if windows.layouts[num]:is_open() then
+            dapui.close { layout = num }
+          else
+            dapui.open { layout = num }
+          end
+        end
         maps.n["<Leader>du"] = { desc = "Debugger UI" }
-        maps.n["<Leader>duv"] = { function() dapui.open { layout = 4 } end, desc = "Open Debugger UI" }
-        maps.n["<Leader>dub"] = { function() dapui.open { layout = 3 } end, desc = "Open Debugger UI" }
+        maps.n["<Leader>duv"] = { function() toggleUI(4) end, desc = "Toggle Vertical Debugger UI" }
+        maps.n["<Leader>dub"] = { function() toggleUI(3) end, desc = "Toggle Bottom Debugger UI" }
         maps.n["<Leader>duo"] = {
           function()
-            dapui.open { layout = 1 }
-            dapui.open { layout = 3 }
+            toggleUI(1)
+            toggleUI(3)
           end,
           desc = "Open Debugger UI",
         }
-        maps.n["<Leader>duc"] = { function() dapui.close() end, desc = "Close Debugger UI" }
       end,
     },
   },

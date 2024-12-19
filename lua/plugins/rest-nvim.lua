@@ -19,36 +19,27 @@ return {
       ---@type AstroUIOpts
       opts = { icons = { RestNvim = "󰳘" } },
     },
-    {
-      "AstroNvim/astrocore",
-      opts = function(_, opts)
-        local maps = opts.mappings
-        maps.n[prefix] = { desc = require("astroui").get_icon("RestNvim", 1, true) .. "RestNvim" }
-        maps.n[prefix .. "r"] = { "<cmd>Rest run<cr>", desc = "Run request under the cursor" }
-        maps.n[prefix .. "l"] = { "<cmd>Rest run last<cr>", desc = "Re-run latest request" }
-      end,
-    },
-    {
-      "nvim-telescope/telescope.nvim",
-      optional = true,
-      specs = {
-        {
-          "AstroNvim/astrocore",
-          opts = function(_, opts)
-            local maps = opts.mappings
-            maps.n[prefix .. "e"] = { "<cmd>Telescope rest select_env<cr>", desc = "Select environment variables file" }
-          end,
-        },
-      },
-      opts = function() require("telescope").load_extension "rest" end,
-    },
+    -- {
+    --   "nvim-telescope/telescope.nvim",
+    --   optional = true,
+    --   specs = {
+    --     {
+    --       "AstroNvim/astrocore",
+    --       opts = function(_, opts)
+    --         local maps = opts.mappings
+    --         maps.n[prefix .. "e"] = { "<cmd>Telescope rest select_env<cr>", desc = "Select environment variables file" }
+    --       end,
+    --     },
+    --   },
+    --   opts = function() require("telescope").load_extension "rest" end,
+    -- },
   },
   opts = {},
   config = function(_, opts)
     local utils = require "astrocore"
     opts = utils.extend_tbl({
       env = {
-        pattern = "%.env$",
+        pattern = "%.env",
       },
       response = {
         hooks = {

@@ -57,8 +57,14 @@ return {
         [";"] = { ":" },
         ["H"] = { "^" },
         ["L"] = { "$" },
-        ["<LocalLeader>p"] = { ':echo expand("%:p:f")<cr>' },
-        ["<Leader>rr"] = { '<cmd>lua require"quickrun".run_command()<cr>', desc = "QuickRun" },
+        ["<LocalLeader>p"] = {
+          function()
+            local str = vim.fn.expand "%:p:f"
+            vim.fn.setreg("+", str)
+            print("当前文件路径：" .. str)
+          end,
+          desc = "Current Path",
+        },
         ["<Leader><Enter>"] = { "<cmd>nohlsearch<cr>", desc = "No Highlight" },
         ["<C-w>"] = { " <cmd>wq<cr>", desc = "Write and Quit Window" },
         ["<C-q>"] = {
