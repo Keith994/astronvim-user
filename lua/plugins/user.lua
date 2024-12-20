@@ -89,26 +89,6 @@ return {
     dependencies = { { "nvim-lua/plenary.nvim" } },
   },
   {
-    "plasticboy/vim-markdown",
-    dependencies = {
-      { "godlygeek/tabular" },
-      {
-        "iamcco/markdown-preview.nvim",
-        build = ":cd app && yarn install",
-        ft = "markdown",
-        init = function() vim.g.mkdp_browser = "/usr/bin/microsoft-edge-stable" end,
-        cmd = { "MarkdownPreview" },
-      },
-    },
-    ft = { "markdown", "md" },
-    init = function()
-      local g = vim.g
-      g.vim_markdown_folding_disabled = 1
-      g.vim_markdown_no_default_key_mappings = 1
-      g.vim_markdown_toc_autofit = 1
-    end,
-  },
-  {
     "phaazon/hop.nvim",
     branch = "v2",
     cmd = { "HopWord", "HopChar1" },
